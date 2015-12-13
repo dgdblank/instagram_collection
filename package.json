@@ -1,0 +1,25 @@
+{
+  "name": "instagram_collection",
+  "version": "1.0.0",
+  "description": "Show a collection of instagram submissions by hashtag",
+  "main": "service.js",
+  "respository": "https://github.com/dgdblank/instagram_collection",
+  "author": "Danielle Blank",
+  "license": "MIT",
+  "engines": {
+    "node": "^0.12.2"
+  },
+  "dependencies": {
+    "angular": "^1.4.8",
+    "angular-ui-router": "^0.2.15",
+    "bcrypt": "^0.8.5",
+    "bluebird": "^3.0.6",
+    "body-parser": "^1.14.1",
+    "bookshelf": "^0.9.1",
+    "express": "^4.13.3",
+    "jwt-simple": "^0.4.0",
+    "knex": "^0.9.0",
+    "pg": "^4.4.3",
+    "ui-router": "^0.2.15"
+  }
+}
