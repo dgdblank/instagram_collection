@@ -1,5 +1,10 @@
 var express = require('express');
 var app = express();
+var cors = require('cors');
+
+var corsOptions = {
+	origin: 'http://localhost:3002'
+};
 // var pg = require('pg');
 
 // var conString = 'postgres://localhost/insta';
@@ -9,7 +14,8 @@ var app = express();
 // configure server with middleware and routing
 require('./middleware.js')(app, express);
 
-
+// Allow cross-origin requests for instagram API
+app.use(cors(corsOptions));
 
 // server static files
 app.use(express.static(__dirname + '/../public'));

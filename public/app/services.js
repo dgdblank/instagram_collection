@@ -1,8 +1,10 @@
+angular.module('photo.factories', [])
 
-angular.module('insta.services', ['insta.config'])
+.factory('Content', function ($http, CONFIG) {
+	
+	var contentFactory = {};
 
-.factory('Content', 'INSTAGRAM_TOKEN', function ($http) {
-	var post = function (content) {
+	contentFactory.post = function (content) {
 		return $http({
 			method: "POST",
 			url: "/collections",
@@ -12,13 +14,15 @@ angular.module('insta.services', ['insta.config'])
 		});
 	};
 
-	var get = function(tag) {
+	contentFactory.get = function(tag) {
 		var tagName = tag.split(' ').join('+');
 		return $http({
 			method: "GET",
-			url: 'https://api.instagram.com/v1/tags/'+tagName+'/media/recent?access_token='+INSTAGRAM_TOKEN
+			url: 'https://api.instagram.com/v1/tags/'+tagName+'/media/recent?access_token='+CONFIG.INSTAGRAM_TOKEN,
 		}).then(function(tags) {
 			return tags.data;
 		});
 	};
+
+	return contentFactory;
 });

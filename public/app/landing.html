@@ -1,1 +1,12 @@
-<div>Hello World</div>
+<div ng-controller="contentCtrl as c">
+	<form ng-submit="c.get(tag)">
+		<input ng-model="tag" type="text" placeholder="Type a tag name" required>
+		<button type="submit">Submit</button>
+	</form>
+</div>
+
+<div>
+	<div ng-repeat="tag in c.tags">
+	{{ tag }}
+	</div>
+</div>

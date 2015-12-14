@@ -1,16 +1,23 @@
-var app = angular.module('insta', 
+var app = angular.module('photo', 
 [
-'ui.router'
+'ui.router',
+'photo.config',
+'photo.factories',
+'photo.controllers'
 ])
 
 app.config(function ($stateProvider, $urlRouterProvider) {
 
-	$stateProvider
+	// Enable cross-domain calls
+	// $httpProvider.defaults.useXDomain = true;
+	//Remove the header used to identify ajax call  that would prevent CORS from working
+    // delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
-	.state('landing', {
-	url: '/',
-	templateUrl: 'app/landing.html'
-	});
+	$stateProvider
+		.state('landing', {
+		url: '/',
+		templateUrl: 'app/landing.html'
+		});
 
 	$urlRouterProvider.otherwise('/');
 });

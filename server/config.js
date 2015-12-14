@@ -7,8 +7,8 @@ var knex = require('knex')({
 	connection: {
 		host: "localhost",
 		user: "root",
-		password: 'insta',
-		database: "insta",
+		password: 'photo',
+		database: "photo",
 		charset: "utf8"
 	}
 });
