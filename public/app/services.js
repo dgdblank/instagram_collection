@@ -4,10 +4,15 @@ angular.module('photo.factories', [])
 	
 	var contentFactory = {};
 
+	function callback(input) {
+		console.log(input);
+	}
+
 	contentFactory.post = function (content) {
 		return $http({
 			method: "POST",
 			url: "/collections",
+			dataType: 'jsonp',
 			data: content
 		}).then(function(res) {
 
@@ -16,11 +21,10 @@ angular.module('photo.factories', [])
 
 	contentFactory.get = function(tag) {
 		var tagName = tag.split(' ').join('+');
-		return $http({
-			method: "GET",
-			url: 'https://api.instagram.com/v1/tags/'+tagName+'/media/recent?access_token='+CONFIG.INSTAGRAM_TOKEN,
-		}).then(function(tags) {
-			return tags.data;
+		return $http.jsonp('https://api.instagram.com/v1/tags/'+tagName+'/media/recent?access_token='+CONFIG.INSTAGRAM_TOKEN+'&callback=JSON_CALLBACK'
+		).then(function(tags) {
+			return tags.data.data;
+
 		});
 	};
 

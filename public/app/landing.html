@@ -3,10 +3,9 @@
 		<input ng-model="tag" type="text" placeholder="Type a tag name" required>
 		<button type="submit">Submit</button>
 	</form>
-</div>
 
-<div>
-	<div ng-repeat="tag in c.tags">
-	{{ tag }}
+
+	<div ng-repeat="option in c.options">
+		<img ng-src="{{ option.images.low_resolution.url }}">
 	</div>
 </div>

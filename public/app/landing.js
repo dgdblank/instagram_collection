@@ -1,12 +1,14 @@
 angular.module('photo.controllers', [])
 
 .controller('contentCtrl', function (Content) {
-	var vm = this;
-	vm.tags = [];
+	var vm = this
+	vm.options = [];
 
 
 	vm.get = function(tag) {
-		vm.tags = Content.get(tag);
+		Content.get(tag).then(function(data) {
+			vm.options = data;
+		});
 	};
 
 })
